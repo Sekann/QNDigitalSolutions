@@ -1,1 +1,108 @@
-<p>home works!</p>
+<div class="container py-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <div class="d-flex align-items-center gap-2 rounded-5 shadow-sm px-3">
+      <div class="home-icon-circle d-flex align-items-center justify-content-center">
+        <i class="bi bi-house-door-fill text-primary fs-4 bg-light rounded-circle"></i>
+      </div>
+      <div>
+        <h5 class="mb-0 fw-bold">Home R401</h5>
+        <small class="text-muted">64 members</small>
+      </div>
+    </div>
+    <button class="btn btn-danger rounded-circle p-2">
+      <i class="bi bi-telephone-fill"></i>
+    </button>
+  </div>
+
+
+  <h2 class="fw-bold mb-4 mt-5">Good Morning!</h2>
+
+
+  <h6 class="text-muted mt-5">Announcement</h6>
+  <div class="announcements-slider-container overflow-hidden mb-4">
+    <div class="announcements-slider d-flex g-3" #slider>
+      <div class="col-md-6 announcement-item" *ngFor="let announcement of announcements">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <h6 class="fw-bold mb-2">{{ announcement.title }}</h6>
+            <p class="text-muted small mb-2">
+              {{ announcement.description | truncateText }}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-primary author"><i class="bi bi-person-circle me-1"></i> {{ announcement.author }}</small>
+              <small class="text-muted">{{ announcement.date }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <h6 class="text-muted mt-5">Services</h6>
+  <div class="d-flex justify-content-between text-center mb-4">
+
+    <div class="flex-fill" routerLink="/visitors">
+      <div class="circle bg-gradient-pink text-white p-3 mx-auto mb-2">
+        <i class="bi bi-person-plus-fill fs-4"></i>
+      </div>
+      <div class="small">Visitors</div>
+    </div>
+
+    <div class="flex-fill" routerLink="/bills">
+      <div class="circle bg-gradient-orange text-white p-3 mx-auto mb-2">
+        <i class="bi bi-receipt fs-4"></i>
+      </div>
+      <div class="small">Bills</div>
+    </div>
+
+    <div class="flex-fill" routerLink="/parcels">
+      <div class="circle bg-gradient-teal text-white p-3 mx-auto mb-2">
+        <i class="bi bi-box-seam fs-4"></i>
+      </div>
+      <div class="small">Parcels</div>
+    </div>
+
+    <div class="flex-fill" routerLink="/services">
+      <div class="circle bg-gradient-blue text-white p-3 mx-auto mb-2">
+        <i class="bi bi-wrench-adjustable fs-4"></i>
+      </div>
+      <div class="small">Services</div>
+    </div>
+  </div>
+
+
+  <div class="card shadow-sm border-0 mt-5 mb-4">
+    <div class="card-body d-flex align-items-center gap-3">
+      <div class="rounded-3 bg-gradient-teal booking p-3 text-white">
+        <i class="bi bi-calendar-check fs-4"></i>
+      </div>
+      <div>
+        <h6 class="fw-bold mb-1">Facilities Booking</h6>
+        <small class="text-muted">Meeting room, Fitness class, Co-kitchen etc</small>
+      </div>
+    </div>
+  </div>
+
+<div class="fixed-bottom bg-white border-top py-2 d-flex justify-content-around shadow-sm mt-5">
+  <div class="text-center">
+    <i class="bi bi-house-fill fs-5 text-primary"></i>
+    <div class="small">Home</div>
+  </div>
+  <div class="text-center">
+    <i class="bi bi-clock-history fs-5 text-muted"></i>
+    <div class="small text-muted">Timeline</div>
+  </div>
+  <div class="text-center">
+    <i class="bi bi-chat-dots fs-5 text-muted"></i>
+    <div class="small text-muted">Message</div>
+  </div>
+  <div class="text-center">
+    <i class="bi bi-person fs-5 text-muted"></i>
+    <div class="small text-muted">Account</div>
+  </div>
+</div>
+
+</div>

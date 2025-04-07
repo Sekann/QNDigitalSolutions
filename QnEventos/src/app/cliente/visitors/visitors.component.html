@@ -3,29 +3,36 @@
     <button class="back-button" (click)="goBack()">
       <i class="bi bi-arrow-left"></i> <!-- Icono dentro del botón -->
     </button>
-    <button class="back-button" (click)="goBack()">←</button>
-
     <h1 class="header-title">Visitors</h1>
-    <div class="header-right"></div>
   </div>
   <div class="tab-container">
-    <div *ngFor="let tab of tabs" 
+    <div *ngFor="let tab of ['upcoming', 'completed', 'cancelled']" 
          class="tab" 
-         [class.active-tab]="activeTab === tab.id"
-         (click)="setActiveTab(tab.id)">
-      <span class="tab-text" [class.active-tab-text]="activeTab === tab.id">
-        {{tab.label}}
+         [class.active-tab]="activeTab === tab"
+         (click)="setActiveTab(tab)">
+      <span class="tab-text" [class.active-tab-text]="activeTab === tab">
+        {{ tab | uppercase }}
       </span>
-      <div *ngIf="activeTab === tab.id" class="active-indicator"></div>
+      <div *ngIf="activeTab === tab" class="active-indicator"></div>
     </div>
   </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading visitors...</p>
+  </div>
   
-  <div class="empty-state-container">
+  <div *ngIf="!isLoading && filteredVisitors.length === 0" class="empty-state-container">
     <img src="perfil.png" alt="No Visitors" class="icon" />
-    <p class="empty-state-text">There is no visitor</p>
+    <p class="empty-state-text">There is no {{ activeTab }} visitor</p>
     <button class="add-button">
       <span>Add new visitor</span>
     </button>
   </div>
+
+  <div *ngIf="!isLoading && filteredVisitors.length > 0" class="visitor-list">
+    <div *ngFor="let visitor of filteredVisitors" class="visitor-item">
+      <img [src]="visitor.profileImage" alt="Visitor profile" class="visitor-image" />
+      <p class="visitor-name">{{ visitor.name }}</p>
+    </div>
+  </div>
 </div>
-<i class="bi bi-arrow-left "></i>
