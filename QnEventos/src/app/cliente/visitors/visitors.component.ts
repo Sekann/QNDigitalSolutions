@@ -1,21 +1,39 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-visitors',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,CommonModule],
   templateUrl: './visitors.component.html',
   styleUrl: './visitors.component.scss'
 })
 export class VisitorsComponent {
+  
+  
 
-    visitors: any[] = []; 
+  activeTab: string = 'upcoming';
+
   
-    constructor() {}
+  tabs = [
+    { id: 'upcoming', label: 'Upcoming' },
+    { id: 'completed', label: 'Completed' },
+    { id: 'cancelled', label: 'Cancelled' },
+  ];
+
+  constructor(
+    private router: Router
+  ) {}
+  setActiveTab(tabId: string): void {
+    this.activeTab = tabId;
+  }
   
-    onAddVisitor(): void {
-      console.log('boton añadir visitante');
-      
+   
+  
+    goBack(): void {
+      this.router.navigate(['/']);
     }
+  
 }
