@@ -14,27 +14,24 @@
   background: linear-gradient(135deg, #5f76e8 0%, #2f80ed 100%);
 }
 
-.announcements-slider-container {
-  max-width: calc(90%);
-  position: relative;
+#announcementsCarousel {
+  max-width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 
-.announcements-slider {
-  transition: transform 0.3s ease-in-out;
+.carousel-inner {
   display: flex;
 }
 
-.announcement-item {
-  flex: 0 0 auto;
-  width: calc(100% / 2);
-}
+.carousel-item {
+  flex: 0 0 50%;
 
-@media (max-width: 768px) {
-  .announcements-slider-container {
-    max-width: calc(100% + 16px);
-  }
-  .announcement-item {
-    width: 100%;
+  &:last-child {
+    margin-right: 0;
   }
 }
 
