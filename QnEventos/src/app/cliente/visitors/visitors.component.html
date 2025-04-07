@@ -1,1 +1,12 @@
-<p>visitors works!</p>
+<div class="visitors-container">
+    <div *ngIf="visitors.length === 0" class="empty-state">
+      <div class="emoji">😊</div>
+      <p class="message">There is no visitor</p>
+      <button class="add-btn" (click)="onAddVisitor()">Add new visitor</button>
+    </div>
+  
+   
+    <div *ngIf="visitors.length > 0">
+      
+    </div>
+  </div>

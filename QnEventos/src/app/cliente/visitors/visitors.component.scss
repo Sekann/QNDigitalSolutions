@@ -1,0 +1,38 @@
+.visitors-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f9f9f9;
+  }
+  
+  .empty-state {
+    text-align: center;
+  }
+  
+  .emoji {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .message {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .add-btn {
+    background-color: #3d5afe;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #304ffe;
+  }
+  
