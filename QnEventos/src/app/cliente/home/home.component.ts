@@ -15,6 +15,7 @@ import {NgForOf} from "@angular/common";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+    announcementPairs: any
     announcements = [
         {title: 'Power outage announcement',
             description: 'The Metropolitan Electricity Authority will temporarily cut off the power for daffdfd',
@@ -44,7 +45,18 @@ export class HomeComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.groupAnnouncementsInPairs()
+    }
+
+    //TODO Conseguir que se muestren en parejas los announcements
+    groupAnnouncementsInPairs(): void {
+        this.announcementPairs = [];
+        for (let i = 0; i < this.announcements.length; i += 2) {
+            this.announcementPairs.push(this.announcements.slice(i, i + 1));
+            console.log(this.announcementPairs);
+        }
+    }
 
 
 }
