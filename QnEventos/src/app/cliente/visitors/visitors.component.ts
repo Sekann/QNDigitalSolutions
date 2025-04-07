@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { Visitor } from '../../services/interfaces/visitor';
+import { VisitorService } from '../../services/visitorService/visitor-services.service';
+
 
 
 @Component({
@@ -10,28 +13,43 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './visitors.component.html',
   styleUrl: './visitors.component.scss'
 })
-export class VisitorsComponent {
+export class VisitorsComponent implements OnInit {
   
-  
+  visitors: Visitor[] = []; 
+  filteredVisitors: Visitor[] = []; 
+  activeTab: string = 'upcoming'; 
+  isLoading = true; 
 
-  activeTab: string = 'upcoming';
+  constructor(private visitorService: VisitorService, private router: Router) { }
 
-  
-  tabs = [
-    { id: 'upcoming', label: 'Upcoming' },
-    { id: 'completed', label: 'Completed' },
-    { id: 'cancelled', label: 'Cancelled' },
-  ];
-
-  constructor(
-    private router: Router
-  ) {}
-  setActiveTab(tabId: string): void {
-    this.activeTab = tabId;
+  ngOnInit(): void {
+    this.loadVisitors();
   }
+
+  loadVisitors(): void {
+    this.visitorService.getVisitors().subscribe({
+      next: (data) => {
+        this.visitors = data; 
+        this.filterVisitorsByStatus();
+        this.isLoading = false; 
+      },
+      error: (err) => {
+        console.error('Error fetching visitors', err);
+        this.isLoading = false;
+      }
+    });
+  }
+
   
-   
-  
+  filterVisitorsByStatus(): void {
+    this.filteredVisitors = this.visitors.filter(visitor => visitor.status === this.activeTab);
+  }
+
+  // Cambiar de tab
+  setActiveTab(tab: string): void {
+    this.activeTab = tab;
+    this.filterVisitorsByStatus(); // Filtramos los visitantes cuando cambiamos de tab
+  }
     goBack(): void {
       this.router.navigate(['/']);
     }
