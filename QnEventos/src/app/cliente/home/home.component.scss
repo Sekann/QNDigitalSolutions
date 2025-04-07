@@ -1,0 +1,53 @@
+.bg-gradient-pink {
+  background: linear-gradient(135deg, #ff7eb3 0%, #ff758c 100%);
+}
+
+.bg-gradient-orange {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+.bg-gradient-teal {
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+}
+
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #5f76e8 0%, #2f80ed 100%);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+
+.rounded-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.bg-gradient-teal {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border-radius: 1rem;
+}
+
+.fixed-bottom .text-center div.small {
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+@media (max-width: 576px) {
+  .rounded-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
