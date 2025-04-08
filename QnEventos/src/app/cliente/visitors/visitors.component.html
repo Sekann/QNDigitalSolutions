@@ -17,11 +17,10 @@
     </div>
   </div>
 
-  <div *ngIf="isLoading" class="loading">
-    <p>Loading visitors...</p>
-  </div>
+ 
   
-  <div *ngIf="!isLoading && filteredVisitors.length === 0" class="empty-state-container">
+  
+  <div *ngIf="filteredVisitors.length === 0" class="empty-state-container">
     <img src="perfil.png" alt="No Visitors" class="icon" />
     <p class="empty-state-text">There is no {{ activeTab }} visitor</p>
     <button class="add-button">
@@ -29,9 +28,9 @@
     </button>
   </div>
 
-  <div *ngIf="!isLoading && filteredVisitors.length > 0" class="visitor-list">
+  <div *ngIf="filteredVisitors.length > 0" class="visitor-list">
     <div *ngFor="let visitor of filteredVisitors" class="visitor-item">
-      <img [src]="visitor.profileImage" alt="Visitor profile" class="visitor-image" />
+      <img [src]="" alt="Visitor profile" class="visitor-image" />
       <p class="visitor-name">{{ visitor.name }}</p>
     </div>
   </div>
