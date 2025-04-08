@@ -96,9 +96,7 @@
 }
 
 .add-button {
-  padding: 12px 24px;
   border-radius: 24px;
-  min-width: 160px;
   background: linear-gradient(to right, #6C63FF, #5A52CC);
   color: #fff;
   font-size: 15px;
@@ -109,4 +107,53 @@
   &:hover {
     opacity: 0.9;
   }
+}
+
+.visitor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0px;
+  background-color: #f0f0f885;
+  margin: 0 auto;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto
+}
+
+.visitor-card {
+  width: 90%;
+  padding: 20px; 
+  margin-bottom: 20px; 
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  .visitorname {
+    font-size: small;
+  }
+ 
+}
+
+.bg-light {
+  background-color: #f7f8fa !important;
+}
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+small {
+  font-size: 0.85rem;
+}
+
+.bi-qr-code-scan {
+  font-size: 1rem;
 }

@@ -1,7 +1,7 @@
 <div class="containerr">
   <div class="header">
     <button class="back-button" (click)="goBack()">
-      <i class="bi bi-arrow-left"></i> <!-- Icono dentro del botón -->
+      <i class="bi bi-arrow-left"></i> 
     </button>
     <h1 class="header-title">Visitors</h1>
   </div>
@@ -28,10 +28,45 @@
     </button>
   </div>
 
-  <div *ngIf="filteredVisitors.length > 0" class="visitor-list">
-    <div *ngFor="let visitor of filteredVisitors" class="visitor-item">
-      <img [src]="" alt="Visitor profile" class="visitor-image" />
-      <p class="visitor-name">{{ visitor.name }}</p>
-    </div>
+  <div *ngIf="filteredVisitors.length > 0" class="visitor-container pt-3 ">
+    <ng-container *ngFor="let group of groupVisitorsByDate(filteredVisitors)">
+      <p class="date text-muted fw-medium small mb-2 ps-1 ">
+        {{ group.date | date: 'dd MMM, yyyy' }}
+      </p>
+  
+      <div *ngFor="let visitor of group.visitors" class="visitor-card bg-white rounded-4 shadow-sm px-3 pt-3 pb-2 mb-3">
+        <div class="d-flex align-items-center mb-2">
+          <img  [src]="visitor.imageUrl || 'perfil.png'" alt="{{ visitor.name }}"
+               class=" rounded-circle me-3" width="50" height="35" />
+  
+          <div class="flex-grow-1">
+            <h6 class="visitorname mb-0 fw-semibold ">{{ visitor.name }}</h6>
+            <small class="visitorname d-block ">{{ visitor.phone }}</small>
+            <small class="text-muted">{{ visitor.relation }}</small>
+          </div>
+  
+          <div class="text-end ms-2 d-flex flex-column align-items-end">
+            <i class="bi bi-three-dots text-muted ms-2 small"></i>
+              <div class="mt-4"></div>
+              <small class="text-muted text-nowrap">{{ visitor.date | date: 'dd MMM, yyyy' }}</small>
+          </div>
+        </div>
+  
+        <div class=" d-flex justify-content-center align-items-center text-primary small fw-medium  pt-3 pb-3 " style="cursor: pointer; border-top: 1px solid #ddd; width: 100%;">
+          <i class="bi bi-qr-code-scan me-2 fs-6 "></i>
+          Share QR access code
+        </div>
+      </div>
+    </ng-container>
   </div>
+  
+  <button type="button" (click)="goAddVisitor()" class="add-button rounded-circle shadow position-fixed"
+          style="bottom: 4rem; right: 2rem; width: 56px; height: 56px;">
+    <i class="bi bi-plus-lg fs-4"></i>
+  </button>
+  
+
+
+
 </div>
+
