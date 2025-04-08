@@ -43,14 +43,14 @@
 </div>
 
 <div *ngIf="confirmModal" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 z-3" (click)="closeConfirm()">
-  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded-5 p-5"  (click)="$event.stopPropagation()">
+  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded-5 p-5 confirm-modal"  (click)="$event.stopPropagation()">
     <div [ngClass]="{'bg-gradient-pink' : selectedParcel.type=='box', 'bg-gradient-blue':selectedParcel.type=='letter'}" class="parcel-icon mx-auto p-5 mb-4">
       <i [ngClass]="{'bi bi-box-seam-fill' : selectedParcel.type=='box', 'bi bi-envelope-fill':selectedParcel.type=='letter'}" class="text-white fs-1"></i>
     </div>
     <h2 class="fw-bolder mx-auto mb-4 text-center">Confirm Received</h2>
     <div class="text-muted mx-auto mb-4 text-center"> {{ selectedParcel.id }}</div>
 
-    <button class="d-flex badge-confirm-modal mx-auto text-center" (click)="changeToReceived(selectedParcel)">Confirm</button>
+    <button class="d-flex badge-confirm-modal mx-auto text-center px-5" (click)="changeToReceived(selectedParcel)">Confirm</button>
 
   </div>
 </div>
