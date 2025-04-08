@@ -22,17 +22,30 @@
   <h6 class="text-muted mt-5">Announcement</h6>
   <div id="announcementsCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div *ngFor="let announcement of announcementPairs; let i = index" class="carousel-item" [class.active]="i === 0">
+      <div *ngFor="let announcement of announcements; let i = index" class="carousel-item" [class.active]="i === 0">
+
         <div class="card shadow-sm border-0 announcement-card">
           <div class="card-body">
-            <h6 class="fw-bold mb-2">{{ announcement[0].title }}</h6>
-            <p class="text-muted small mb-2">{{ announcement[0].description | truncateText}}</p>
+            <h6 class="fw-bold mb-2">{{ announcements[i].title }}</h6>
+            <p class="text-muted small mb-2">{{ announcements[i].description | truncateText}}</p>
             <div class="d-flex justify-content-between align-items-center">
-              <small class="text-primary"><i class="bi bi-person-circle me-1"></i> {{ announcement[0].author }}</small>
-              <small class="text-muted">{{ announcement[0].date }}</small>
+              <small class="text-primary"><i class="bi bi-person-circle me-1"></i> {{ announcements[i].author }}</small>
+              <small class="text-muted">{{ announcements[i].date }}</small>
             </div>
           </div>
         </div>
+
+        <div class="card shadow-sm border-0 announcement-card" *ngIf="i+1< announcements.length">
+          <div class="card-body">
+            <h6 class="fw-bold mb-2">{{ announcements[i+1].title }}</h6>
+            <p class="text-muted small mb-2">{{ announcements[i+1].description | truncateText}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-primary"><i class="bi bi-person-circle me-1"></i> {{ announcements[i+1].author }}</small>
+              <small class="text-muted">{{ announcements[i+1].date }}</small>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#announcementsCarousel" data-bs-slide="prev">

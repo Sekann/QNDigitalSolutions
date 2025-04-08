@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {TruncateTextPipe} from "../../services/pipes/truncate-text.pipe";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -9,13 +9,14 @@ import {NgForOf} from "@angular/common";
     imports: [
         RouterLink,
         TruncateTextPipe,
-        NgForOf
+        NgForOf,
+        NgIf
     ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-    announcementPairs: any
+    //TODO hacer que se los items del carrousel en la misma linea
     announcements = [
         {title: 'Power outage announcement',
             description: 'The Metropolitan Electricity Authority will temporarily cut off the power for daffdfd',
@@ -46,17 +47,7 @@ export class HomeComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {
-        this.groupAnnouncementsInPairs()
-    }
 
-    //TODO Conseguir que se muestren en parejas los announcements
-    groupAnnouncementsInPairs(): void {
-        this.announcementPairs = [];
-        for (let i = 0; i < this.announcements.length; i += 2) {
-            this.announcementPairs.push(this.announcements.slice(i, i + 1));
-            console.log(this.announcementPairs);
-        }
     }
-
 
 }

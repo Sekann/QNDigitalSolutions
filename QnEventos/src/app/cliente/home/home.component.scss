@@ -15,7 +15,7 @@
 }
 
 #announcementsCarousel {
-  max-width: 100%;
+  max-width: calc(100% + 16px);
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -28,11 +28,17 @@
 }
 
 .carousel-item {
-  flex: 0 0 50%;
+  width: 100%;
+  flex: 0 0 100%;
 
   &:last-child {
     margin-right: 0;
   }
+}
+
+.announcement-card {
+  width: calc(50% - 0.5rem);
+  display: inline;
 }
 
 .card:hover {
