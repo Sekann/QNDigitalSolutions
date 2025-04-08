@@ -1,1 +1,18 @@
-<p>services works!</p>
+<div class="w-100 py-3 mt-3 mb-2 mx-0 d-flex align-items-center shadow-sm mb-4">
+  <i class="bi bi-arrow-left fs-4 fw-bolder ms-4" routerLink="/home"></i>
+  <h5 class="fw-bold text-center mx-auto">Services</h5>
+</div>
+
+<div class="container py-4 w-100">
+  <div class="w-100 row g-4 column-gap-1 d-flex justify-content-center">
+    <div class="col-5 col-md-3" *ngFor="let service of services">
+      <div class="card border-0 shadow-sm service-card h-100">
+        <img src="{{service.image}}" class="card-img-top rounded-3" alt="{{ service.title }}">
+        <div class="card-body">
+          <h6 class="fw-semibold mb-1">{{ service.title }}</h6>
+          <p class="text-primary fw-bold">${{ service.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
