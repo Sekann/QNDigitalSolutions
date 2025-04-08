@@ -1,0 +1,47 @@
+.bg-gradient-orange {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+.bg-gradient-teal {
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+}
+
+.bi-arrow-left:hover {
+  cursor: pointer;
+}
+
+.bill-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bill-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.bill-info {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.badge-paid {
+  background-color: #eef2ff;
+  color: #5f76e8;
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+}
+
