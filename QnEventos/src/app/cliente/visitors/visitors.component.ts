@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Visitor } from '../../services/interfaces/visitor';
-import { VisitorService } from '../../services/visitorService/visitor-services.service';
 
 
 
@@ -20,25 +19,12 @@ export class VisitorsComponent implements OnInit {
   activeTab: string = 'upcoming'; 
   isLoading = true; 
 
-  constructor(private visitorService: VisitorService, private router: Router) { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
-    this.loadVisitors();
-  }
+    }
 
-  loadVisitors(): void {
-    this.visitorService.getVisitors().subscribe({
-      next: (data) => {
-        this.visitors = data; 
-        this.filterVisitorsByStatus();
-        this.isLoading = false; 
-      },
-      error: (err) => {
-        console.error('Error fetching visitors', err);
-        this.isLoading = false;
-      }
-    });
-  }
+ 
 
   
   filterVisitorsByStatus(): void {
