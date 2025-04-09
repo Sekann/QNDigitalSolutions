@@ -1,6 +1,8 @@
-<div class="container py-4">
-
-  <div class="d-flex justify-content-between align-items-center mb-5">
+<ng-container *ngIf="innerWidth>576">
+  <app-header></app-header>
+</ng-container>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center gap-2 rounded-5 shadow-sm px-3">
       <div class="home-icon-circle d-flex align-items-center justify-content-center">
         <i class="bi bi-house-door-fill text-primary fs-4 bg-light rounded-circle"></i>
@@ -16,10 +18,10 @@
   </div>
 
 
-  <h2 class="fw-bold mb-4 mt-5">Good Morning!</h2>
+  <h2 class="fw-bold mb-3 mt-3">Good Morning!</h2>
 
 
-  <h6 class="text-muted mt-5">Announcement</h6>
+  <h6 class="text-muted mt-3">Announcement</h6>
   <div id="announcementsCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div *ngFor="let announcement of announcements; let i = index" class="carousel-item" [class.active]="i === 0">
@@ -59,8 +61,8 @@
   </div>
 
 
-  <h6 class="text-muted mt-5">Services</h6>
-  <div class="d-flex justify-content-between text-center mb-4">
+  <h6 class="text-muted mt-3">Services</h6>
+  <div class="d-flex justify-content-between text-center mb-3">
 
     <div class="flex-fill" routerLink="/visitors">
       <div class="circle bg-gradient-pink text-white p-3 mx-auto mb-2">
@@ -92,7 +94,7 @@
   </div>
 
 
-  <div class="card shadow-sm border-0 mt-5 mb-4">
+  <div class="card shadow-sm border-0 mt-4 mb-4">
     <div class="card-body d-flex align-items-center gap-3">
       <div class="rounded-3 bg-gradient-teal booking p-3 text-white">
         <i class="bi bi-calendar-check fs-4"></i>
@@ -103,24 +105,9 @@
       </div>
     </div>
   </div>
-
-<div class="fixed-bottom bg-white border-top py-2 d-flex justify-content-around shadow-sm mt-5">
-  <div class="text-center">
-    <i class="bi bi-house-fill fs-5 text-primary"></i>
-    <div class="small">Home</div>
-  </div>
-  <div class="text-center">
-    <i class="bi bi-clock-history fs-5 text-muted"></i>
-    <div class="small text-muted">Timeline</div>
-  </div>
-  <div class="text-center">
-    <i class="bi bi-chat-dots fs-5 text-muted"></i>
-    <div class="small text-muted">Message</div>
-  </div>
-  <div class="text-center">
-    <i class="bi bi-person fs-5 text-muted"></i>
-    <div class="small text-muted">Account</div>
-  </div>
 </div>
 
-</div>
+<ng-container *ngIf="innerWidth<576">
+  <app-header></app-header>
+</ng-container>
+

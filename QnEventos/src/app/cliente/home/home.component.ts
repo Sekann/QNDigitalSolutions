@@ -2,16 +2,18 @@ import {Component,OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {TruncateTextPipe} from "../../services/pipes/truncate-text.pipe";
 import {NgForOf, NgIf} from "@angular/common";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-    imports: [
-        RouterLink,
-        TruncateTextPipe,
-        NgForOf,
-        NgIf
-    ],
+  imports: [
+    RouterLink,
+    TruncateTextPipe,
+    NgForOf,
+    NgIf,
+    HeaderComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -50,4 +52,5 @@ export class HomeComponent implements OnInit {
 
     }
 
+  protected readonly innerWidth = innerWidth;
 }
