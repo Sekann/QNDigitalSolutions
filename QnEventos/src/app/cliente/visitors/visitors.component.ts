@@ -108,8 +108,9 @@ export class VisitorsComponent implements OnInit {
     this.filterVisitorsByStatus();
   }
     goBack(): void {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }
+  
     goAddVisitor(): void {
       this.router.navigate(['/add-visitor']);
     }

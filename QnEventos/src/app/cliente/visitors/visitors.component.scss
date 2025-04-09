@@ -24,7 +24,10 @@
   background: none;
   width: 100px;
   height: 40px;
- 
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-title {
@@ -81,12 +84,7 @@
 }
 
 .icon {
- 
-  width: 150px;
-  height: 100px;
   margin-bottom: 24px;
-  opacity: 0.5;
-
 }
 
 .empty-state-text {
@@ -156,4 +154,59 @@ small {
 
 .bi-qr-code-scan {
   font-size: 1rem;
+}
+@media (min-width: 1024px) {
+ .tab-container,.tab-text {
+    font-size: 1.7rem;
+  }
+
+  .visitor-container{
+    font-size: 1.8rem;
+    }
+    
+  .visitor-card{
+    .visitorname{
+      font-size: 1.7rem;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+    .icon {
+      font-size: 1.8rem;
+      width: 150px;
+      height: 90px;
+    }
+    small {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .d-flex {
+      gap: 15px;
+    }
+  }
+  
+ 
+
+  .add-button i {
+    font-size: 2.5rem !important;
+  }
+
+  .add-button.rounded-circle {
+    width: 130px !important;
+    height:120px !important; 
+    font-size: 2.2rem !important;
+    right: 110px !important;
+    bottom: 90px !important; 
+  }
+
+  .header-title{
+    font-size: 1.8rem;
+    padding: 30px 0;
+  }
+
+  .back-button{
+    font-size: 2.7rem;
+    padding-left: 250px;
+  }
+
 }
