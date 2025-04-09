@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <div class="card shadow-sm border-0 announcement-card" *ngIf="i+1< announcements.length && !isMobile">
+        <div class="card shadow-sm border-0 announcement-card" *ngIf="i+1< announcements.length && !isMobileHeight">
           <div class="card-body">
             <h6 class="fw-bold mb-2">{{ announcements[i+1].title }}</h6>
             <p class="text-muted small mb-2">{{ announcements[i+1].description | truncateText}}</p>

@@ -3,7 +3,7 @@ import {RouterLink} from "@angular/router";
 import {TruncateTextPipe} from "../../services/pipes/truncate-text.pipe";
 import {NgForOf, NgIf} from "@angular/common";
 import {HeaderComponent} from "../header/header.component";
-import {ScreenWidthService} from "../../services/responsive/screen-width.service";
+import {ScreenService} from "../../services/responsive/screen-width.service";
 
 @Component({
   selector: 'app-home',
@@ -20,6 +20,7 @@ import {ScreenWidthService} from "../../services/responsive/screen-width.service
 })
 export class HomeComponent implements OnInit {
   isMobile: boolean = false;
+  isMobileHeight: boolean = false;
     announcements = [
         {title: 'Power outage announcement',
             description: 'The Metropolitan Electricity Authority will temporarily cut off the power for daffdfd',
@@ -47,13 +48,17 @@ export class HomeComponent implements OnInit {
             date: '12 Jan, 2021',}
     ];
 
-    constructor(private screenService: ScreenWidthService) {
+    constructor(private screenService: ScreenService) {
 
     }
 
     ngOnInit(): void {
       this.screenService.screenWidth$.subscribe(screenWidth => {
         this.isMobile = screenWidth<756;
+      })
+
+      this.screenService.screenHeight$.subscribe(screenHeight => {
+        this.isMobileHeight = screenHeight<756;
       })
 
     }

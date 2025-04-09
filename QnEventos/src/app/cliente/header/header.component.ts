@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgClass, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
-import {ScreenWidthService} from "../../services/responsive/screen-width.service";
+import {ScreenService} from "../../services/responsive/screen-width.service";
 
 @Component({
   selector: 'app-header',
@@ -17,7 +17,7 @@ import {ScreenWidthService} from "../../services/responsive/screen-width.service
 export class HeaderComponent implements OnInit {
   isMobile = false;
 
-  constructor(private screenService:ScreenWidthService) {
+  constructor(private screenService:ScreenService) {
   }
 
   ngOnInit() {
@@ -26,5 +26,4 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  protected readonly outerWidth = outerWidth;
 }
