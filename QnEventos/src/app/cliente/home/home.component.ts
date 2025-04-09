@@ -3,6 +3,7 @@ import {RouterLink} from "@angular/router";
 import {TruncateTextPipe} from "../../services/pipes/truncate-text.pipe";
 import {NgForOf, NgIf} from "@angular/common";
 import {HeaderComponent} from "../header/header.component";
+import {ScreenWidthService} from "../../services/responsive/screen-width.service";
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ import {HeaderComponent} from "../header/header.component";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-    //TODO hacer que se los items del carrousel en la misma linea
+  isMobile: boolean = false;
     announcements = [
         {title: 'Power outage announcement',
             description: 'The Metropolitan Electricity Authority will temporarily cut off the power for daffdfd',
@@ -46,11 +47,15 @@ export class HomeComponent implements OnInit {
             date: '12 Jan, 2021',}
     ];
 
-    constructor() {}
-
-    ngOnInit(): void {
+    constructor(private screenService: ScreenWidthService) {
 
     }
 
-  protected readonly innerWidth = innerWidth;
+    ngOnInit(): void {
+      this.screenService.screenWidth$.subscribe(screenWidth => {
+        this.isMobile = screenWidth<756;
+      })
+
+    }
+
 }

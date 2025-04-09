@@ -6,7 +6,7 @@
 
 a {
   i {
-    @media(max-width: 576px) {
+    @media(max-width: 768px) {
       display: block;
       text-align: center;
     }
@@ -15,9 +15,12 @@ a {
 
 }
 
+a:hover {
+  cursor: pointer;
+}
 
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .header {
     margin-bottom: 0;
     bottom: 0;
