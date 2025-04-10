@@ -48,7 +48,9 @@
     <div class="visitor-options-box" (click)="$event.stopPropagation()">
       <div class="visitor-options-header">
         <h5>{{ selectedVisitor.name }}</h5>
-        <button class="close-btn" (click)="closeVisitorOptions()">x</button>
+        <div class="close-btn">
+        <button class="close" (click)="closeVisitorOptions()">x</button>
+      </div>
       </div>
       <button (click)="editVisitor()">Edit Visitor</button>
       <button (click)="removeVisitor()" class="text-danger">Remove Visitor</button>
