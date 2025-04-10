@@ -15,4 +15,7 @@ export class VisitorServicesService {
   getVisitors(): Observable<Visitor[]> {
     return this.http.get<Visitor[]>(this.apiUrl);
   }
+  addVisitor(visitor: Visitor): Observable<Visitor> {
+    return this.http.post<Visitor>(this.apiUrl, visitor);
+  }
 }

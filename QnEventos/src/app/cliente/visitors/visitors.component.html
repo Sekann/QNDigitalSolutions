@@ -23,7 +23,7 @@
   <div *ngIf="filteredVisitors.length === 0" class="empty-state-container">
     <img src="perfil.png" alt="No Visitors" class="icon" />
     <p class="empty-state-text">There is no {{ activeTab }} visitor</p>
-    <button class="add-button">
+    <button class="add-button" (click)="goAddVisitor()">
       <span>Add new visitor</span>
     </button>
   </div>

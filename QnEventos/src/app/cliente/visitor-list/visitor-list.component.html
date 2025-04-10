@@ -1,0 +1,56 @@
+<div class="containerr pt-4">
+    <div class="header">
+        <div class="left-buttons">
+          <button class="back-button" (click)="goBack()">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <button class="home-button" (click)="goHome()">
+            <i class="bi bi-house"></i>
+          </button>
+        </div>
+        <h1 class="header-title">Visitors lists</h1>
+        <button class="cancel-button fw-medium" (click)="goHome()"> Cancel </button>
+      </div>
+
+    <div class="visitor-container pt-4">
+        <div class="add-visitor-button mb-4" (click)="addNewVisitor()">
+            <i class="bi bi-plus-circle-fill me-2"></i>
+            Add new visitor
+          </div>
+      <section class="visitors-section  mb-4">
+        <h5 class="text-muted mb-3 fw-semibold ps-2">Latest visitors</h5>
+        <div *ngFor="let visitor of latestVisitors" class="visitor-card bg-white rounded-4 shadow-sm px-3 pt-4 pb-2 mb-3">
+          <div class="d-flex align-items-center mb-2">
+            <img [src]="visitor.imageUrl || 'perfil.png'" class="icon rounded-circle me-3" width="60" height="45" alt="{{visitor.name}}" />
+            <div class="flex-grow-1">
+              <h6 class="visitorname mb-0 fw-semibold">{{ visitor.name }}</h6>
+              <small class="visitorname d-block">{{ visitor.phone }}</small>
+              <small class="text-muted">{{ visitor.relation }}</small>
+            </div>
+            <button class="edit-button ms-2" (click)="editVisitor()">
+                <i class="bi bi-pencil"></i>
+              </button> 
+          </div>
+        </div>
+        
+        </section>
+  
+      <section class="visitors-section">
+        <h5 class="text-muted mb-3 fw-semibold medium ps-2">All Visitors</h5>
+        <div *ngFor="let visitor of allVisitors" class="visitor-card bg-white rounded-4 shadow-sm px-3 pt-4 pb-2 mb-3">
+          <div class="d-flex align-items-center mb-2">
+            <img [src]="visitor.imageUrl || 'perfil.png'" class="icon rounded-circle me-3" width="60" height="45" alt="{{visitor.name}}" />
+            <div class="flex-grow-1">
+              <h6 class="visitorname mb-0 fw-semibold">{{ visitor.name }}</h6>
+              <small class="visitorname d-block">{{ visitor.phone }}</small>
+              <small class="text-muted">{{ visitor.relation }}</small>
+            </div>
+            <button class="edit-button ms-2" (click)="editVisitor()">
+                <i class="bi bi-pencil"></i>
+              </button> 
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
