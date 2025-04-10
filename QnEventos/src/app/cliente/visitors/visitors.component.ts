@@ -17,6 +17,7 @@ export class VisitorsComponent implements OnInit {
   filteredVisitors: Visitor[] = []; 
   activeTab: string = 'upcoming'; 
   isLoading = true; 
+  selectedVisitor: Visitor | null = null;
 
   constructor( private router: Router) { }
 
@@ -114,4 +115,22 @@ export class VisitorsComponent implements OnInit {
     goAddVisitor(): void {
       this.router.navigate(['/add-visitor']);
     }
+
+
+    openVisitorOptions(visitor: Visitor): void {
+      this.selectedVisitor = visitor;
+    }
+    closeVisitorOptions(): void {
+      this.selectedVisitor = null;
+    }
+    editVisitor(): void {
+      console.log('Editar visitante:', this.selectedVisitor);
+      this.closeVisitorOptions();
+    }
+  
+    removeVisitor(): void {
+      console.log('Eliminar visitante:', this.selectedVisitor);
+      this.closeVisitorOptions();
+    }
+
 }
