@@ -18,17 +18,17 @@
   </div>
 
 
-  <h2 class="fw-bold mb-3 mt-5">Good Morning!</h2>
+  <h2 class="fw-bold mb-4 mt-4 fs-3">Good Morning!</h2>
 
 
-  <h6 class="text-muted mt-1">Announcement</h6>
+  <h6 class="text-muted mt-1 fs-5">Announcement</h6>
   <div id="announcementsCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div *ngFor="let announcement of announcements; let i = index" class="carousel-item" [class.active]="i === 0">
 
         <div class="card shadow-sm border-0 announcement-card">
           <div class="card-body">
-            <h6 class="fw-bold mb-2">{{ announcements[i].title }}</h6>
+            <h6 class="fw-bold mb-2 fs-6">{{ announcements[i].title }}</h6>
             <p class="text-muted small mb-2">{{ announcements[i].description | truncateText}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <small class="text-primary"><i class="bi bi-person-circle me-1"></i> {{ announcements[i].author }}</small>
@@ -39,7 +39,7 @@
 
         <div class="card shadow-sm border-0 announcement-card" *ngIf="i+1< announcements.length && !isMobileHeight">
           <div class="card-body">
-            <h6 class="fw-bold mb-2">{{ announcements[i+1].title }}</h6>
+            <h6 class="fw-bold mb-2 fs-6">{{ announcements[i+1].title }}</h6>
             <p class="text-muted small mb-2">{{ announcements[i+1].description | truncateText}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <small class="text-primary"><i class="bi bi-person-circle me-1"></i> {{ announcements[i+1].author }}</small>
@@ -61,7 +61,7 @@
   </div>
 
 
-  <h6 class="text-muted mt-4">Services</h6>
+  <h6 class="text-muted mt-4 fs-5">Services</h6>
   <div class="d-flex justify-content-between text-center mb-3">
 
     <div class="flex-fill" routerLink="/visitors">

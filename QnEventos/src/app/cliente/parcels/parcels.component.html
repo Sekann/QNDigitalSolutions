@@ -1,12 +1,12 @@
 
 <div class="w-100 py-3 mt-3 mb-2 mx-0 d-flex align-items-center shadow-sm mb-4">
   <i class="bi bi-arrow-left fs-4 fw-bolder ms-4" routerLink="/home"></i>
-  <h5 class="fw-bold text-center mx-auto">Parcels</h5>
+  <h5 class="fw-bold text-center mx-auto fs-4">Parcels</h5>
 </div>
 
 <div>
 
-  <h5 class="text-secondary fw-bold mx-5">To receive</h5>
+  <h5 class="text-secondary fw-bold mx-5 fs-5">To receive</h5>
   <p *ngIf="noParcelsToReceive()" class="text-muted mx-5">No parcels pending to receive.</p>
   <div *ngFor="let parcel of parcels" class="mx-5">
     <div *ngIf="!parcel.received" class="parcel-card shadow-lg">
@@ -14,8 +14,8 @@
         <i [ngClass]="{'bi bi-box-seam-fill' : parcel.type=='box', 'bi bi-envelope-fill':parcel.type=='letter'}" class="text-white fs-4"></i>
       </div>
       <div class="parcel-info">
-        <div class="fw-bolder"> {{ parcel.id }}</div>
-        <div class="text-muted small">{{ parcel.date }} | {{ parcel.time }}</div>
+        <div class="fw-bolder fs-6"> {{ parcel.id }}</div>
+        <div class="text-muted">{{ parcel.date }} | {{ parcel.time }}</div>
       </div>
       <div class="confirm" (click)="openConfirmModal(parcel)">
         <span class="badge-confirm">Confirm</span>
@@ -24,15 +24,15 @@
 
   </div>
 
-  <h5 class="text-secondary fw-bold mx-5">Completed</h5>
+  <h5 class="text-secondary fw-bold mx-5 fs-5">Completed</h5>
   <div *ngFor="let parcel of parcels" class="mx-5">
     <div *ngIf="parcel.received" class="parcel-card shadow-lg">
       <div [ngClass]="{'bg-gradient-pink' : parcel.type=='box', 'bg-gradient-blue':parcel.type=='letter'}" class="parcel-icon">
         <i [ngClass]="{'bi bi-box-seam-fill' : parcel.type=='box', 'bi bi-envelope-fill':parcel.type=='letter'}" class="text-white fs-4"></i>
       </div>
       <div class="parcel-info">
-        <div class="fw-bolder"> {{ parcel.id }}</div>
-        <div class="text-muted small">{{ parcel.date }} | {{ parcel.time }}</div>
+        <div class="fw-bolder fs-6"> {{ parcel.id }}</div>
+        <div class="text-muted ">{{ parcel.date }} | {{ parcel.time }}</div>
       </div>
       <div>
         <i class="bi bi-check-circle-fill text-primary fs-3"></i>
@@ -43,7 +43,7 @@
 </div>
 
 <div *ngIf="confirmModal" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 z-3" (click)="closeConfirm()">
-  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded-5 p-5 confirm-modal"  (click)="$event.stopPropagation()">
+  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded-5 p-5 confirm-modal" [ngClass]="{'w-25':!isMobileWidth}"   (click)="$event.stopPropagation()">
     <div [ngClass]="{'bg-gradient-pink' : selectedParcel.type=='box', 'bg-gradient-blue':selectedParcel.type=='letter'}" class="parcel-icon mx-auto p-5 mb-4">
       <i [ngClass]="{'bi bi-box-seam-fill' : selectedParcel.type=='box', 'bi bi-envelope-fill':selectedParcel.type=='letter'}" class="text-white fs-1"></i>
     </div>

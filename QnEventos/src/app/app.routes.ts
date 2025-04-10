@@ -8,6 +8,7 @@ import {HomeComponent} from "./cliente/home/home.component";
 import { AddVisitorComponent } from './cliente/add-visitor/add-visitor.component';
 import { VisitorListComponent } from './cliente/visitor-list/visitor-list.component';
 import { VisitorCreateComponent } from './cliente/visitor-create/visitor-create.component';
+import {ServiceDetailsComponent} from "./service-details/service-details.component";
 
 export const routes: Routes = [
 
@@ -21,6 +22,7 @@ export const routes: Routes = [
           {path:"bills", component: BillsComponent},
           {path: "parcels", component: ParcelsComponent },
           {path: "services", component: ServicesComponent },
+          {path:"service-details", component: ServiceDetailsComponent},
         ]
       }
 

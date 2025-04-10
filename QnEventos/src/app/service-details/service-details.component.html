@@ -1,0 +1,49 @@
+
+<div class="container my-4 service-detail w-100 h-100">
+
+  <div class="position-relative">
+    <img src="{{service?.image}}" class="img-fluid rounded w-100 h-100" alt="{{ service?.title }}">
+    <button class="btn btn-light position-absolute top-0 start-0 m-2" routerLink="/services">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <button class="btn btn-light position-absolute top-0 end-0 m-2" routerLink="/home">
+      <i class="bi bi-house-door-fill"></i>
+    </button>
+  </div>
+
+  <div class="rounded-top-3 shadow-sm">
+    <ul class="nav nav-tabs my-3">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Terms of service</a>
+      </li>
+    </ul>
+
+
+    <div class="voucher-box text-white text-center fw-bold py-2 mb-3">
+      <i class="bi bi-gift me-2"></i> MONTHLY VOUCHER <br />
+      <span class="display-6 fw-bold">50% OFF</span>
+    </div>
+
+
+    <h4 class="fw-bold">{{ service?.title }}</h4>
+    <p class="text-muted">{{ service?.description }}</p>
+
+
+    <ul class="list-unstyled">
+      <li *ngFor="let item of checklist">
+        <i class="bi bi-check-circle-fill text-success me-2"></i> {{ item }}
+      </li>
+    </ul>
+
+
+    <div class="fixed-bottom p-3 bg-white shadow-lg">
+      <button class="btn btn-primary w-100 py-2 gradient-btn">
+        Select services
+      </button>
+    </div>
+  </div>
+</div>
+
