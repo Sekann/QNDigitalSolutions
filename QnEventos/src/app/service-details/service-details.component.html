@@ -1,8 +1,7 @@
+<div class="service-detail w-100 h-100">
 
-<div class="container my-4 service-detail w-100 h-100">
-
-  <div class="position-relative">
-    <img src="{{service?.image}}" class="img-fluid rounded w-100 h-100" alt="{{ service?.title }}">
+  <div class="position-relative w-100">
+    <img src="{{service?.image}}" class="img-fluid w-100 h-100" alt="{{ service?.title }}">
     <button class="btn btn-light position-absolute top-0 start-0 m-2" routerLink="/services">
       <i class="bi bi-arrow-left"></i>
     </button>
@@ -11,8 +10,8 @@
     </button>
   </div>
 
-  <div class="rounded-top-3 shadow-sm">
-    <ul class="nav nav-tabs my-3">
+  <div class="rounded-top-3 mt-0 w-100">
+    <ul class="nav nav-tabs shadow-sm rounded-top-3 my-3">
       <li class="nav-item">
         <a class="nav-link active" href="#">Details</a>
       </li>
@@ -21,29 +20,34 @@
       </li>
     </ul>
 
-
-    <div class="voucher-box text-white text-center fw-bold py-2 mb-3">
-      <i class="bi bi-gift me-2"></i> MONTHLY VOUCHER <br />
-      <span class="display-6 fw-bold">50% OFF</span>
+    <div class="voucher-card d-flex align-items-center p-3 rounded shadow-sm">
+      <div class="voucher-icon d-flex align-items-center justify-content-center me-3">
+        <i class="bi bi-gift-fill fs-4 text-white"></i>
+      </div>
+      <div class="voucher-text text-white">
+        <small class="text-uppercase fw-bold">Monthly Voucher</small>
+        <div class="fs-4 fw-bold">50% OFF</div>
+      </div>
     </div>
 
-
-    <h4 class="fw-bold">{{ service?.title }}</h4>
-    <p class="text-muted">{{ service?.description }}</p>
-
-
-    <ul class="list-unstyled">
-      <li *ngFor="let item of checklist">
-        <i class="bi bi-check-circle-fill text-success me-2"></i> {{ item }}
-      </li>
-    </ul>
+    <div class="mx-3">
+      <h4 class="fw-bold">{{ service?.title }}</h4>
+      <p class="text-muted">{{ service?.description }}</p>
 
 
-    <div class="fixed-bottom p-3 bg-white shadow-lg">
-      <button class="btn btn-primary w-100 py-2 gradient-btn">
+      <ul class="list-unstyled">
+        <li *ngFor="let item of checklist">
+          <i class="bi bi-check-circle-fill text-success me-2"></i> {{ item }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="fixed-bottom p-3 bg-opacity-10 shadow-lg">
+      <button class="btn btn-primary w-100 mx-0 py-2 gradient-btn">
         Select services
       </button>
     </div>
+
   </div>
 </div>
 
