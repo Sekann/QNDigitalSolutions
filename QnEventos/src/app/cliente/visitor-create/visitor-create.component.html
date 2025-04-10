@@ -1,0 +1,71 @@
+<div class="containerr pt-4">
+    <div class="header">
+      <div class="left-buttons">
+        <button class="back-button" (click)="goBack()">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+      </div>
+      <h1 class="header-title">New Visitor</h1>
+      <button class="cancel-button fw-medium" (click)="goBack()">Cancel</button>
+    </div>
+  
+    <div class="visitor-container pt-4">
+      <div class="avatar-section text-center mb-4">
+        <div class="avatar-container mx-auto" (click)="changePhoto()">
+          <img [src]="visitorData.imageUrl || 'perfil.png'" alt="Visitor avatar" class="visitor-avatar" />
+          <div class="camera-icon">
+            <i class="bi bi-camera"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group mb-4">
+        <label class="form-label">Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          [(ngModel)]="visitorData.name" 
+          placeholder="Name">
+      </div>
+  
+      <div class="form-group mb-4">
+        <label class="form-label">Phone number</label>
+        <input 
+          type="tel" 
+          class="form-control" 
+          [(ngModel)]="visitorData.phone" 
+          placeholder="(XXX) XXX-XXXX">
+      </div>
+  
+      <div class="form-group mb-4">
+        <label class="form-label">Relationship with you</label>
+        <select class="form-select" [(ngModel)]="visitorData.relation">
+          <option value="" disabled selected>Please select</option>
+          <option value="Friend">Friend</option>
+          <option value="Family">Family</option>
+          <option value="None">None</option>
+        </select>
+      </div>
+  
+      <div class="form-check mb-4">
+        <input 
+          type="checkbox" 
+          class="form-check-input" 
+          id="saveInList" 
+          [(ngModel)]="visitorData.saveInList">
+        <label class="form-check-label" for="saveInList">
+          Save in visitor lists
+        </label>
+      </div>
+  
+      <div class="save-button-container">
+      <button 
+        class="btn btn-primary w-100 save-button" 
+        [disabled]="!isFormValid()"
+        (click)="saveVisitor()">
+        Save
+      </button>
+    </div>
+    </div>
+  </div>
+  

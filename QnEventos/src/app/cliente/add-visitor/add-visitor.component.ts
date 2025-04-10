@@ -33,8 +33,9 @@ export class AddVisitorComponent {
     this.router.navigate(['/home']);
   }
 
+
   selectVisitor() {
-    console.log('Select Visitor clicked');
+    this.router.navigate(['/visitor-list']);
   }
 
   onDateSelected(date: Date | null) {

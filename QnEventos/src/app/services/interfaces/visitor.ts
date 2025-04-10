@@ -5,4 +5,5 @@ export interface Visitor {
   date: string;
   status: 'upcoming' | 'completed' | 'cancelled';
   imageUrl: string;
+  saveInList?: boolean;
   }
