@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {ScreenService} from "../../services/responsive/screen-width.service";
 
 @Component({
   selector: 'app-parcels',
@@ -14,9 +15,10 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
   templateUrl: './parcels.component.html',
   styleUrl: './parcels.component.scss'
 })
-export class ParcelsComponent {
+export class ParcelsComponent implements OnInit {
   confirmModal : boolean = false;
   selectedParcel : any
+  isMobileWidth: boolean = false;
   parcels  = [
     {received: false,
       id: "PC1472589B",
@@ -49,6 +51,15 @@ export class ParcelsComponent {
       location: "DHL, Parcel",
       type:"letter"},
   ]
+
+  constructor(private screenService: ScreenService) {
+  }
+
+  ngOnInit() {
+    this.screenService.screenWidth$.subscribe(screenWidth => {
+      this.isMobileWidth = screenWidth<756;
+    })
+  }
 
   noParcelsToReceive(): boolean {
     return this.parcels.filter(parcel => !parcel.received).length === 0;
