@@ -200,11 +200,14 @@ small {
 }
 
 .close-btn {
-  background: none;
   border: none;
   font-size: 1.5rem;
   padding: 0;
   cursor: pointer;
+  align-items: right;
+}
+.close{
+  background: none;
 }
 
 button {
